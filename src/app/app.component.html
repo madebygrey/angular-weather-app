@@ -6,10 +6,10 @@
 >
   <nav
     class="slide-menu"
-    [ngClass]="{ 'slide-menu-active': showMenu }"
+    [ngClass]="{'slide-menu-active': showMenu, 'slide-menu-active-dark': darkModeActive}"
     (click)="$event.stopImmediatePropagation()"
   >
-    <section class="menu-header">
+    <section class="menu-header" [ngClass]="{'menu-header-dark': darkModeActive}">
       <span class="greeting__text">Welcome Back</span>
       <div class="profile-image__container">
         <img
@@ -23,12 +23,20 @@
         <span class="email__text">cradleoffilth@gmail.com</span>
       </div>
     </section>
-    <section class="menu-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates at, amet quaerat minus dolorum, ipsa reprehenderit natus corrupti cumque blanditiis eaque eius quis eligendi a, vitae similique tenetur itaque perspiciatis.</section>
-    <section class="menu-footer"></section>
+    <section class="menu-body">
+      <ul class="menu-links" [ngClass]="{'menu-links-dark': darkModeActive}">
+        <li class="menu-link" [routerLinkActiveOptions]="{exact:true}" routerLink="" routerLinkActive="link-active" (click)="toggleMenu()">Home</li>
+        <li class="menu-link" [routerLinkActiveOptions]="{exact:true}" routerLink="/add" routerLinkActive="link-active" (click)="toggleMenu()">Add City</li>
+        <!-- <li (click)="logout()" class="menu-link">Logout</li> -->
+      </ul>
+    </section>
+    <section class="menu-footer">
+      <small class="copyright__text">Copyright © 2019 Minimus</small>
+    </section>
   </nav>
 </aside>
 
-<div class="root__container">
+<div class="root__container" [ngClass]="{ 'root__container-dark': darkModeActive }">
   <header
     [ngClass]="{ 'main__header-dark': darkModeActive }"
     class="main__header"
@@ -63,7 +71,7 @@
       </svg>
     </div>
 
-    <h3 class="date__text">Today</h3>
+    <h3 class="date__text">{{ today | date }}</h3>
 
     <div class="mode-toggle__container">
       <span class="mode-toggle__text">Light</span>
@@ -89,8 +97,7 @@
   </header>
 
   <!-- Main Content -->
-
-  <!--<router-outlet></router-outlet>-->
+  
   <main class="main__container">
     <div
       class="main-container__bg"
@@ -98,10 +105,4 @@
     ></div>
     <router-outlet></router-outlet>
   </main>
-
-  <!-- Footer -->
-
-  <footer class="main__footer">
-    <small class="copyright__text">Copyright © 2018 Minimus</small>
-  </footer>
 </div>

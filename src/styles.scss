@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 body {
   font-family: sans-serif;
   margin: 0;
@@ -40,6 +39,7 @@ body {
   to {
     transform: translateY(0);
   }
+
 }
 
 @keyframes slideup {
@@ -49,6 +49,7 @@ body {
   to {
     transform: translateY(0);
   }
+
 }
 
 @keyframes slideright {
@@ -58,6 +59,7 @@ body {
   to {
     transform: translateX(0);
   }
+
 }
 
 @keyframes scaleup {
@@ -67,6 +69,7 @@ body {
   to {
     transform: scale(1);
   }
+
 }
 
 @keyframes scaleup-circle {
@@ -78,4 +81,5 @@ body {
     transform-origin: center;
     transform: scale(1) translateY(-50%) rotate(360deg);
   }
+
 }
