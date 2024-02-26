@@ -9,6 +9,8 @@ export class AppComponent {
   showMenu = false;
   darkModeActive: boolean = false;
 
+  constructor() {}
+
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }
