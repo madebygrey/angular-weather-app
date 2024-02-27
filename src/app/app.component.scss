@@ -239,10 +239,8 @@
 }
 
 .left__section {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
-  max-width: 5rem;
+  display: flex;
+  align-items: center;
 }
 
 .date__text {
@@ -256,8 +254,8 @@
   position: relative;
   z-index: 50;
   height: 1rem;
-  padding: 0.5rem 1.5rem;
   margin-right: 1rem;
+  margin-left: 1rem;
   cursor: pointer;
 }
 
@@ -300,6 +298,18 @@
 
 .main__container {
   display: flex;
+  margin: auto;
+  width: 100%;
+}
+
+.menu-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.4rem;
+}
+.menu-footer-dark {
+  color: #fff;
 }
 
 @media screen and (max-width: 959px) {
@@ -332,10 +342,30 @@
     align-items: center;
     justify-content: space-around;
   }
+  .profile-image__container {
+    margin: 1rem 0;
+  }
+  .account-details {
+    text-align: center;
+    margin: 0 0 1rem;
+  }
 }
 
 @media only screen and (max-width: 300px) {
   .slide-menu {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .date__text {
+    margin: 1.5rem 0;
+    font-size: 1rem;
+  }
+  .hamburger__icon {
+    margin-left: 0;
+  }
+  .left__section {
+    padding: 0 1rem;
   }
 }

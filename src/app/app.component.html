@@ -30,7 +30,7 @@
         <!-- <li (click)="logout()" class="menu-link">Logout</li> -->
       </ul>
     </section>
-    <section class="menu-footer">
+    <section class="menu-footer" [ngClass]="{'menu-footer-dark': darkModeActive}">
       <small class="copyright__text">Copyright © 2019 Minimus</small>
     </section>
   </nav>

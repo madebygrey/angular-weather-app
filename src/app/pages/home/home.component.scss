@@ -1,7 +1,18 @@
 .main__container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     position: relative;
+    width: 100%;
+}
+
+:host {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .main__container {
+      padding: 3rem 1.5rem;
+    }
 }

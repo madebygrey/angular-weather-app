@@ -28,7 +28,7 @@
 }
 
 .city__illustration {
-    width: 20rem;
+    width: 100%;
 }
 
 .body__container {
@@ -40,6 +40,16 @@
 }
 
 .add__icon {
-    width: 10rem;
+    width: 50%;
     margin-bottom: 1.15rem;
+}
+
+@media screen and (max-width: 767px) {
+    :host {
+        width: 100%;
+    }
+    .add__card {
+        width: 100%;
+        margin: 0;
+    }
 }
