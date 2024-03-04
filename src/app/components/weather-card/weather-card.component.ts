@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 import { WeatherService } from 'src/app/services/weather.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-weather-card',
@@ -22,15 +23,18 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   currentTemp: number = 0;
   windDir: string = '';
   windSpeed: number = 0;
+  errorMessage?: string;
+  cityAdded? = false;
 
-  constructor(public uiService: UiService, private weatherService: WeatherService) {}
+  @Output() cityStored = new EventEmitter();
+
+  constructor(public uiService: UiService, private weatherService: WeatherService, public router: Router) {}
 
   ngOnInit(): void {
     this.mode$ = this.uiService.darkModeState.subscribe((value) => {
       this.darkMode = value;
     });
     this.weather$ = this.weatherService.getCityWeather(this.city).subscribe(data => {
-      console.log(data);
       this.cityName = data.location.name;
       this.countryName = data.location.country;
       this.conditionIcon = data.current.condition.icon;
@@ -42,7 +46,7 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   }
 
   openDetails(): void {
-    console.log(123);
+    this.router.navigateByUrl('/details/' + this.cityName);
   }
 
   ngOnDestroy(): void {
